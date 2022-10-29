@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 import uuid
 
@@ -7,6 +6,7 @@ class Project(models.Model):
     """Simple description for a project"""
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
+    feature_image = models.ImageField(null=True, blank=True, default="default.jpg")
     demo_link = models.CharField(max_length=2000, null=True, blank=True)
     source_link = models.CharField(max_length=2000, null=True, blank=True)
     tags = models.ManyToManyField('Tag', blank=True)
